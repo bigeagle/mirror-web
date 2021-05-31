@@ -16,8 +16,8 @@
 							<h1>{{ site.school }}开源软件镜像站</h1>
 							<h3>暂时无法提供服务</h3>
 							<div class="pull-right">
-								<img src="/static/img/candle.jpg" 
-									srcset="/static/img/candle.jpg 1x,
+								<img src="{{ site.baseurl }}/static/img/candle.jpg" 
+									srcset="{{ site.baseurl }}/static/img/candle.jpg 1x,
 													/static/img/candle@2x.jpg 2x"
 								/>
 							</div>
@@ -209,8 +209,8 @@
 	{% raw %}
 	{% endraw %}
 	{% unless page.legacy or site.issue %}
-	<script src="/static/js/index.js"></script>
-	<script src="/static/js/browser-update.js"></script>
+	<script src="{{ site.baseurl }}/static/js/index.js"></script>
+	<script src="{{ site.baseurl }}/static/js/browser-update.js"></script>
 	{% endunless %}
 </html>
 <!--
