@@ -6,7 +6,7 @@ $('.selectpicker').selectpicker()
 var global_options = {% include options.json %};
 var label_map = global_options.options.label_map;
 var help_url = {};
-global_options.helps.forEach((h) => help_url[h.mirrorid] = h.url);
+global_options.helps.forEach((h) => help_url[h.mirrorid] = ("{{ site.baseurl }}" + h.url) );
 var new_mirrors = {};
 global_options.options.new_mirrors.forEach((m) => new_mirrors[m] = true);
 var unlisted = global_options.options.unlisted_mirrors;
