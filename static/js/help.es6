@@ -39,7 +39,7 @@ $(document).ready(() => {
 		window.location = `${window.location.protocol}//${window.location.host}${help_url}`;
 	});
 
-	$.getJSON("/static/tunasync.json", (statusData) => {
+	$.getJSON("{{ '/static/tunasync.json' | relative_url }}", (statusData) => {
 		// remove help items for disabled/removed mirrors
 		let availableMirrorIds = new Set(statusData.map(x => x.name));
 		globalOptions.unlisted_mirrors.forEach(elem => {
@@ -50,7 +50,7 @@ $(document).ready(() => {
 		});
 		console.log(window.mirrorId);
 		if (!availableMirrorIds.has(window.mirrorId)) {
-			location.href = "/404-help-hidden.html"; // this will break 404 issue submission
+			location.href = "{{ '/404-help-hidden.html' | relative_url }}"; // this will break 404 issue submission
 		}
 
 		$('li').filter((_, node) => node.id && node.id.startsWith("toc-") && !availableMirrorIds.has(node.id.slice(4))).remove();
