@@ -10,7 +10,7 @@ $(document).ready(() => {
     }
     return size.toFixed(1) + ' ' + units[i];
   }
-  $.get("/static/status/disk.json", (d) => {
+  $.get("{{ '/static/status/disk.json' | relative_url }}", (d) => {
     var used_percent = Math.round(d.used_kb * 100 / d.total_kb);
     $('#disk-usage-bar')
       .attr("aria-valuenow", used_percent)
